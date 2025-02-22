@@ -22,3 +22,24 @@
     font-size: 1rem;
     font-weight: 400;
 }
+
+.video-container{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.video-player-container{
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.video-player-button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
