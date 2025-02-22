@@ -7,6 +7,9 @@ import './styles.scss'
 // helpers
 import { isYouTubeLink } from '../../utils/helpers/helpers';
 
+// https://www.youtube.com/watch?v=7PxxVJ40ZXM&t=2293s&ab_channel=KayyyWild
+
+
 function Video(): ReactElement | null {
     const navigate = useNavigate();
     const location = useLocation();
@@ -19,12 +22,10 @@ function Video(): ReactElement | null {
     };
 
     useEffect(() => {
-        console.log('useEffect')
-        const isCorrectURL = isYouTubeLink(location?.state?.videoURL);
-        console.log('isCorrectURL', isCorrectURL)
+        const isCorrectURL = isYouTubeLink(location?.state?.videoUrl);
 
         if (isCorrectURL) {
-            setVideoURL(location?.state?.videoURL)
+            setVideoURL(location?.state?.videoUrl)
         } else {
             setVideoURL('https://www.youtube.com/watch?v=63EAJJakvEU&ab_channel=IliaTS')
         }
@@ -41,7 +42,7 @@ function Video(): ReactElement | null {
                     onProgress={handleProgress}
                     progressInterval={1000}
                     width="80%"
-                    height="60vh"
+                    height="70vh"
                 />
             </div>
 
