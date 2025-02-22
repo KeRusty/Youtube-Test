@@ -2,13 +2,25 @@ import React, { ReactElement, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import './styles.scss'
 
+// helpres
+import { isYouTubeLink } from '../../utils/helpers/helpers';
+
+
 function Home(): ReactElement | null {
     const [inputUrl, setInputUrl] = useState<string>("");
     const navigate = useNavigate();
 
     const handleSave = () => {
         localStorage.setItem("videoPosition", "0");
-        navigate('/video', { state: { videoUrl: inputUrl } });
+
+        const isCorrectURL = isYouTubeLink(inputUrl);
+
+        if (isCorrectURL) {
+            navigate('/video', { state: { videoUrl: inputUrl } });
+        } else {
+            window.alert('Oops this does not seem to be a valid Youtube URL, try again')
+        }
+
     };
 
     return (
